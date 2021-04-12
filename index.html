@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Multi-Step Form Flow</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+<body>
+    <div id="app" data-state="step-1">
+        <form class="ui-form">
+            <ul class="ui-steps">
+                <li class="ui-step" data-show="step-1"><span>1</span></li>
+                <li class="ui-step" data-show="step-2"><span>2</span></li>
+                <li class="ui-step" data-show="step-3"><span>3</span></li>
+                <li class="ui-step" data-show="step-4"><span>4</span></li>
+                <li class="ui-step" data-show="step-5"><span>5</span></li>
+            </ul>
+
+            <section class="ui-section" data-show="step-1">
+                <div class="ui-subheading">Step 1</div>
+                <h2 class="ui-heading">Welcome! How many people live with you?</h2>
+                <p class="ui-paragraph">To calculate an accurate population index, it's vital to know how many people are members of a household, including non-family members</p>
+                <div class="ui-field">
+                    <input type="number" class="ui-input" required>
+                    <button type="button" class="ui-button">Next</button>
+                </div>
+            </section>
+
+            <section class="ui-section" data-show="step-2">
+                <div class="ui-subheading">Step 2</div>
+                <h2 class="ui-heading">Enter Your Monthly Expenses (5 digits)</h2>
+                <p class="ui-paragraph">To calculate the GDP, it's important to know how much each household spends on necessities</p>
+                <div class="ui-field">
+                    <input type="text" class="ui-input" pattern="\d{5}" required>
+                    <button type="button" class="ui-button">Next</button>
+                </div>
+            </section>
+
+            <section class="ui-section" data-show="step-3">
+                <div class="ui-subheading" data-flip-key="subheading-3">Step 3</div>
+                <h2 class="ui-heading" data-flip-key="heading-3">Do you require live-in assistance?</h2>
+                <p class="ui-paragraph" data-flip-key="p-3">Often, people require live-in help or a maid to help with chores around the house.</p>
+                <label class="ui-label -choice" data-flip-key="label-3">
+                    <input type="radio" id="animation-help">
+                    <span class="ui-text">I Need Help</span> <br />
+
+                    <input type="radio" id="animation-help">
+                    <span class="ui-text">I Don't Need Help</span>
+                </label>
+                <button type="button" class="ui-button" data-flip-key="next-3" id="step-3-button">Next</button>
+            </section>
+
+            <section class="ui-section" data-show="step-4">
+                <div class="ui-subheading">Step 4</div>
+                <h2 class="ui-heading">Almost done. How much do you pay for utilities (water, electricity, gas, telephone)?</h2>
+                <p class="ui-paragraph">To calculate the GNP, it's important to know how much each household spends on basic utilities.</p>
+                <div class="ui-field">
+                    <input type="number" class="ui-input" required>
+                    <button type="button" class="ui-button">Next</button>
+                </div>
+            </section>
+
+            <section class="ui-section" data-show="step-5">
+                <div class="ui-subheading">Step 5</div>
+                <h2 class="ui-heading">Awesome! Choose your type of insurance.</h2>
+                <p class="ui-paragraph">To determine how much needs to be put away per household, the government needs to know your insurance carrier.</p>
+                <div class="ui-choices">
+
+                    <input type="radio" name="choice" id="choice-1" class="ui-input">
+                    <label for="choice-1" class="ui-choice">
+                        <span class="ui-text">REST</span>
+                    </label>
+                    
+                    <input type="radio" name="choice" id="choice-2" class="ui-input">
+                    <label for="choice-2" class="ui-choice">
+                        <span class="ui-text">Crazy John's</span>
+                    </label>
+
+                    <input type="radio" name="choice" id="choice-3" class="ui-input">
+                    <label for="choice-3" class="ui-choice">
+                        <span class="ui-text">Black Pepper</span>
+                    </label>
+                </div>
+                    
+                    <button type="button" class="ui-button -submit" id="submit">Submit</button>
+            </section>
+
+            <div class="ui-section" data-show="finished">
+                And we're done!
+            </div>
+        </form>
+    </div>
+    <script src='https://unpkg.com/xstate@4.0.0/dist/xstate.js'></script>
+    <script src='https://unpkg.com/flipping@1.1.0/dist/flipping.web.js'></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>
