@@ -23,8 +23,8 @@ html, body {
 
 #app {
   color: #656565;
-  -webkit-animation: fade-in 0.4s linear 0.3s both;
-          animation: fade-in 0.4s linear 0.3s both;
+  -webkit-animation: fade-in .4s linear .3s both;
+          animation: fade-in .4s linear .3s both;
 }
 
 @-webkit-keyframes fade-in {
@@ -100,7 +100,7 @@ html, body {
           appearance: none;
   background: #3187F2;
   border: none;
-  border-radius: 2px;
+  border-radius: 10px;
   padding: 1rem;
   display: inline-block;
   color: white;
@@ -132,7 +132,7 @@ html, body {
 }
 
 .ui-field > .ui-button {
-  margin-left: -1rem;
+  margin-left: 0rem;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   opacity: 0;
