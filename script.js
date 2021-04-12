@@ -1,10 +1,10 @@
 console.clear();
 
-const elApp = document.querySelector("#app");
-const elNextButtons = Array.from(document.querySelectorAll("button:not(#submit)"));
-const elSubmitButton = document.querySelector("#submit");
-const elAnimationHelp = document.querySelector("#animation-help");
-const elStep3Button = document.querySelector("#step-3-button");
+const elApp = document.querySelector('#app');
+const elNextButtons = Array.from(document.querySelectorAll('button:not(#submit)'));
+const elSubmitButton = document.querySelector('#submit');
+const elAnimationHelp = document.querySelector('#animation-help');
+const elStep3Button = document.querySelector('#step-3-button');
 
 const flipping = new Flipping();
 
@@ -35,7 +35,7 @@ const insuranceMachine = Machine({
         },
         'step-5' : {
             on: {
-                NEXT: 'step-1'
+                SUBMIT: 'step-1'
             }
         },
         finished: {}
@@ -49,23 +49,23 @@ function setStateAttributes(state) {
     // change data-state attribute
     elApp.dataset.state = state;
 
-    // remove any active data-attribues
-    document.querySelectorAll('[data-active]').forEach(el => {
+    // remove any active data-attributes
+    document.querySelectorAll(`[data-active]`).forEach(el => {
         delete el.dataset.active;
     });
 
     // add active data-attributes to proper elements
     document.querySelectorAll(`
         [data-show~="${state}"],
-        [data-hide]:not([data-hide~="${state}"])`)
-        .forEach(el => {
+        [data-hide]:not([data-hide~="${state}"])`).
+        forEach(el => {
             el.dataset.active = true;
         });
 }
 
 function send(event) {
-    currentState = insuranceMachine
-        .transition(currentState, event);
+    currentState = insuranceMachine.
+    transition(currentState, event);
 
     setStateAttributes(currentState.value);
 }
@@ -80,7 +80,7 @@ elSubmitButton.addEventListener('click', () => {
     send('SUBMIT');
 });
 
-elAnimationHelp.addEventListener('change', flipping.wrap((e) => {
+elAnimationHelp.addEventListener('change', flipping.wrap(e => {
     if(e.target.checked) {
         elStep3Button.dataset.clickable = true;
     } else {
