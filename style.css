@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0.5, 1), -webkit-transform 0.4s cubic-bezier(0.5, 0, 0.5, 1);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, monospace;
+}
+
+#app {
+  color: #656565;
+  -webkit-animation: fade-in 0.4s linear 0.3s both;
+          animation: fade-in 0.4s linear 0.3s both;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.ui-form {
+  padding: 5%;
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  justify-items: center;
+}
+
+.ui-section {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  max-width: 30em;
+}
+
+.ui-subheading {
+  color: #ccc;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.ui-input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  padding: .5rem;
+  -webkit-transition: border-color .3s ease;
+  transition: border-color .3s ease;
+}
+
+.ui-input:focus {
+  outline: none;
+  border-color: #3187F2;
+}
+
+.ui-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #3187F2;
+  border: none;
+  border-radius: 2px;
+  padding: 1rem;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: 2px;
+  width: auto;
+  margin-top: 1rem;
+  -webkit-transition-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.ui-heading {
+  margin: 1rem 0;
+}
+
+.ui-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.ui-field > * {
+  margin: 0;
+}
+
+.ui-field > .ui-button {
+  margin-left: -1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  opacity: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  pointer-events: none;
+}
+
+.ui-field > .ui-input:valid + .ui-button {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.ui-label {
+  margin: 1rem 0;
+}
+
+.ui-paragraph {
+  line-height: 1.5;
+}
+
+.ui-button#step-3-button {
+  -webkit-animation: step-3-button 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+          animation: step-3-button 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.ui-button#step-3-button:not([data-clickable]) {
+  display: none;
+}
+
+@-webkit-keyframes step-3-button {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes step-3-button {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.ui-choices > input {
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  display: none;
+}
+
+.ui-choices > input:checked + .ui-choice {
+  background: #3187F2;
+  color: white;
+}
+
+.ui-choice {
+  -webkit-transition: all 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: all 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+  border: 2px solid #3187F2;
+  display: inline-block;
+  padding: 1rem;
+  margin-right: 1rem;
+  border-radius: 2px;
+}
+
+.ui-steps,
+.ui-step {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ui-steps {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  margin-right: 2rem;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.ui-step {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+  height: 100%;
+  --speed: .3s;
+  --color: #3187F2;
+  --secondary: #AAA;
+}
+
+.ui-step span {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: var(--color);
+  color: #FFF;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  -webkit-transition: background-color var(--speed) cubic-bezier(0.5, 0, 0.5, 1) var(--speed);
+  transition: background-color var(--speed) cubic-bezier(0.5, 0, 0.5, 1) var(--speed);
+}
+
+.ui-step span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 130%;
+  height: 130%;
+  margin: -15%;
+  border: solid 2px var(--color);
+  border-radius: 50%;
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  -webkit-transition: inherit;
+  transition: inherit;
+  -webkit-transition-property: border-color, -webkit-transform;
+  transition-property: border-color, -webkit-transform;
+  transition-property: transform, border-color;
+  transition-property: transform, border-color, -webkit-transform;
+}
+
+.ui-step::before, .ui-step::after {
+  content: '';
+  display: block;
+  border-right: solid 3px var(--secondary);
+  height: 100%;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  width: 0px;
+  margin: 0 auto;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+}
+
+.ui-step::after {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  border-right-color: var(--color);
+  -webkit-transition: -webkit-transform var(--speed) cubic-bezier(0.5, 0, 0.5, 1);
+  transition: -webkit-transform var(--speed) cubic-bezier(0.5, 0, 0.5, 1);
+  transition: transform var(--speed) cubic-bezier(0.5, 0, 0.5, 1);
+  transition: transform var(--speed) cubic-bezier(0.5, 0, 0.5, 1), -webkit-transform var(--speed) cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.ui-step:last-child::before, .ui-step:last-child::after {
+  display: none;
+}
+
+.ui-step[data-active] span {
+  background: #3187F2;
+}
+
+.ui-step[data-active] span::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.ui-step[data-active]::after {
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  -webkit-transition-delay: avr(--speed);
+          transition-delay: avr(--speed);
+}
+
+.ui-step[data-active] ~ .ui-step {
+  --color: #AAA;
+}
+
+.ui-step[data-active] ~ .ui-step::after {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+.ui-section {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-30vh);
+          transform: translateY(-30vh);
+  -webkit-transition: opacity 0.5s linear, visibility 0s linear 0.5s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: opacity 0.5s linear, visibility 0s linear 0.5s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: opacity 0.5s linear, transform 0.5s cubic-bezier(0.5, 0, 0.5, 1), visibility 0s linear 0.5s;
+  transition: opacity 0.5s linear, transform 0.5s cubic-bezier(0.5, 0, 0.5, 1), visibility 0s linear 0.5s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.ui-section[data-active] {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.ui-section[data-active] ~ .ui-section {
+  -webkit-transform: translateY(30vh);
+          transform: translateY(30vh);
+}
+
+.ui-section[data-active] > * {
+  -webkit-animation: slide-up 0.35s cubic-bezier(0.5, 0, 0.5, 1) both;
+          animation: slide-up 0.35s cubic-bezier(0.5, 0, 0.5, 1) both;
+}
+
+.ui-section[data-active] > *:nth-child(1):not(#step-3-button) {
+  -webkit-animation-delay: 100ms !important;
+          animation-delay: 100ms !important;
+}
+
+.ui-section[data-active] > *:nth-child(2):not(#step-3-button) {
+  -webkit-animation-delay: 200ms !important;
+          animation-delay: 200ms !important;
+}
+
+.ui-section[data-active] > *:nth-child(3):not(#step-3-button) {
+  -webkit-animation-delay: 300ms !important;
+          animation-delay: 300ms !important;
+}
+
+.ui-section[data-active] > *:nth-child(4):not(#step-3-button) {
+  -webkit-animation-delay: 400ms !important;
+          animation-delay: 400ms !important;
+}
+
+.ui-section[data-active] > *:nth-child(5):not(#step-3-button) {
+  -webkit-animation-delay: 500ms !important;
+          animation-delay: 500ms !important;
+}
+
+@-webkit-keyframes slide-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(1rem);
+            transform: translateY(1rem);
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(1rem);
+            transform: translateY(1rem);
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */
