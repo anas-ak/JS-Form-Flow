@@ -20,7 +20,7 @@ html, body {
 
 #app {
     color: #656565;
-    animation: fade-in 0.4s linear 0.3s both;
+    animation: fade-in .4s linear .3s both;
     @keyframes fade-in {
         from { opacity: 0; }
     }
@@ -68,7 +68,7 @@ html, body {
     appearance: none;
     background: $color-primary;
     border: none;
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 1rem;
     display: inline-block;
     color: white;
@@ -93,7 +93,7 @@ html, body {
     }
 
     > .ui-button {
-        margin-left: -1rem;
+        margin-left: 0rem;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         opacity: 0;
@@ -118,6 +118,7 @@ html, body {
 }
 
 .ui-button#step-3-button {
+    
     &:not([data-clickable]) {
         display: none;
     }
